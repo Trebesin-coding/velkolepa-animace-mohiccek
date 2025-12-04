@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>mini golficek</title>
+        <style>
+            .golf {
+                width: 160px;
+                height: 210px;
+                position: absolute;
+                top: 40%;
+                left: 10%;
+                
+                z-index: 1;
+            }
+
+            .kruh {
+                width: 102px;
+                height: 102px;
+                background-color: black;
+                border-radius: 50%;
+                position: absolute;
+                top: 49%;
+                left: 60%;
+            }
+            .mic {
+                width: 85px;
+                height: 85px;
+                position: absolute;
+                top: 50%;
+                left: 18%;
+                
+            }
+
+            .pozadi {
+                background-color: green;
+                height: 1000px;
+                width: 2030px;
+            }
+            .vlajka {
+                top: 29%;
+                left: 58%;
+                position: absolute;
+                width: 200px;
+                height: 250px;
+            }
+            .tlacitko {
+                height: 100px;
+                width: 140px;
+                position: absolute;
+                top: 15%;
+                left: 35%;
+                color: black;
+            }
+            .vyhra {
+                height: 200px;
+                width: 310px;
+                
+                position: absolute;
+                top: 25%;
+                left: 25%;
+            }
+            .animace3 {
+                animation: pohyb3 3s alternate forwards;
+               
+                
+            }
+            .animace2 {
+                animation: pohyb2 1.5s 0.3s alternate forwards;
+            }
+
+            .animace1 {
+                animation: pohyb 4s 0.3 alternate forwards;
+            }
+
+            @keyframes pohyb {
+                0% {
+                    transform: translate(0);
+                }
+                20% {
+                    rotate: -20deg;
+                    transform: translate(180px);
+                }
+                100% {
+                    rotate: 130deg;
+                    transform: translate(180px);
+                }
+            }
+
+            @keyframes pohyb2 {
+                0% {
+                    transform: translate(0px);
+                }
+                99% {
+                    transform: translate(854px);
+                    opacity: 100;
+                }
+                100% {
+                    transform: translate(854px);
+                    opacity: 0;
+                }
+            }
+            @keyframes pohyb3 {
+                0% {
+                    transform: translate(0px);
+                    opacity: 0;
+                }
+                90% {
+                    transform: translate(854px);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translate(-100px);
+                    opacity: 100;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="pozadi"></div>
+        <img class="golf" src="golficek.png" />
+        <img
+            class="vyhra"
+            src="vyhrajupi.png"
+        />
+        <div class="kruh"></div>
+        <img
+            class="mic"
+            src="https://th.bing.com/th/id/R.90bbafcef1d3e7cd00a57f5c0018ed80?rik=67XU7b%2bdE6v%2bug&pid=ImgRaw&r=0"
+        />
+        <img class="vlajka" src="flagred.png" />
+        <button class="tlacitko" onclick="arsenal"><h1>Start</h1></button>
+        
+    </body>
+    <script>
+        const anim1 = document.querySelector(".mic")
+        const anim2 = document.querySelector(".golf")
+        const anim3 = document.querySelector(".vyhra")
+        const animace = document.querySelector(".tlacitko")
+        animace.addEventListener("click", arsenal)
+        function arsenal(){
+            anim1.classList.toggle("animace2")
+            anim2.classList.toggle("animace1")
+            anim3.classList.toggle("animace3")
+        }
+    </script>
+</html>
